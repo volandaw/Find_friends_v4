@@ -1,4 +1,7 @@
 import streamlit as st
+import sklearn
+sklearn.set_config(transform_output="default") # Ta linia naprawia błąd ze zdjęcia
+from pycaret.clustering import load_model, predict_model
 import pandas as pd
 import os
 from pycaret.clustering import load_model, predict_model  # type: ignore
