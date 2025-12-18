@@ -253,13 +253,20 @@ else:
     # 1. Dane wszystkich uczestników
     all_df = get_all_participants()
 
-    # 2. Model
+    # 2. Pobranie modelu z pamięci
     model = get_model()
 
-    # 3. Predykcja klastra – wersja bezpieczna (verbose=False)
-    clustered = predict_model(model, data=all_df, verbose=False)
+    # 3. Przypisanie klastrów do wszystkich osób - wersja odporna na błędy
+    try:
+        # Próba standardowa
+        clustered = predict_model(model, data=all_df)
+    except Exception:
+        # Próba awaryjna, jeśli powyższa zawiedzie
+        preds = model.predict(all_df)
+        clustered = all_df.copy()
+        clustered['Cluster'] = preds
 
-    # 4. Liczebność klastrów
+    # 4. Podliczenie ile osób trafiło do każdego klastra
     cluster_counts = clustered['Cluster'].value_counts().sort_index()
 
     st.subheader("Liczba osób w każdym klastrze")
