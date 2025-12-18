@@ -20,79 +20,96 @@ DATA = os.path.join(os.path.dirname(__file__), "welcome_survey_simple_v1.csv")
 # KOMPLETNY ZESTAW RÓL DLA KLASTRÓW 0–7
 CLUSTER_ROLES = {
     0: {
-        "name": "Spokojni analitycy",
-        "strengths": "cierpliwość, porządkowanie informacji, spokojne i przemyślane podejście do problemów.",
-        "good_tasks": "analiza danych, przygotowywanie raportów, sprawdzanie szczegółów, praca indywidualna.",
+        "name": "Strategiczny Opiekun (Strategist & Mentor)",
+        "strengths": "stabilność emocjonalna, wysoka etyka pracy, zdolność do mentoringu, dystans do sytuacji kryzysowych.",
+        "good_tasks": "nadzór nad procesami, zarządzanie ryzykiem, doradztwo strategiczne, rozstrzyganie konfliktów.",
         "person_desc": (
-            "Osoby z tego klastra zwykle lubią mieć czas na zastanowienie i działają raczej spokojnie niż impulsywnie. "
-            "Cenią porządek, przewidywalność i dobrze czują się tam, gdzie można coś na spokojnie przeanalizować."
+            "Osoby z tego klastra to 'spokojna siła' zespołu. Łączą dojrzałość (45-54 lata) z solidnym wykształceniem. "
+            "Wybór lasu i psów sugeruje naturę lojalną, ceniącą spokój i głębokie relacje zamiast powierzchownego zgiełku. "
+            "To naturalni mentorzy, którzy wnoszą do grupy poczucie bezpieczeństwa i szeroką perspektywę."
         )
     },
     1: {
-        "name": "Kreatywni odkrywcy",
-        "strengths": "szukanie nowych rozwiązań, generowanie pomysłów, otwartość na zmiany.",
-        "good_tasks": "burze mózgów, tworzenie nowych ofert, praca projektowa, testowanie nowych pomysłów.",
+        "name": "Dynamiczny Innowator (The Flow Master)",
+        "strengths": "zdolność adaptacji, inicjatywa, kreatywne łączenie faktów, wysoka energia w działaniu.",
+        "good_tasks": "wdrażanie innowacji, prowadzenie dynamicznych projektów, budowanie relacji, szybkie prototypowanie.",
         "person_desc": (
-            "Osoby z tego klastra łatwo wpadają na nowe pomysły i szybko się nudzą rutyną. "
-            "Dobrze czują się tam, gdzie można eksperymentować, próbować nowych podejść i wychodzić poza schemat."
+            "Osoby z tego klastra to 'silniki' zmian. Łączą wiek największej aktywności (35-44 lata) z otwartym umysłem. "
+            "Wybór odpoczynku nad wodą sugeruje naturę elastyczną, która potrzebuje swobody, by generować najlepsze pomysły. "
+            "To lojalni partnerzy (psy), którzy nie boją się wypłynąć na głęboką wodę, gdy projekt wymaga odwagi i świeżego spojrzenia."
         )
     },
     2: {
-        "name": "Ludzie od relacji",
-        "strengths": "budowanie zaufania, komunikacja, wspieranie innych.",
-        "good_tasks": "kontakt z klientem, praca zespołowa, onboarding nowych osób, prowadzenie spotkań.",
+        "name": "Ambitny Zespołowiec (The Mountain Climber)",
+        "strengths": "wytrwałość, autentyczność, budowanie lojalnych relacji, odporność na trudne warunki.",
+        "good_tasks": "koordynacja projektów, sprzedaż relacyjna, motywowanie zespołu, wsparcie w sytuacjach kryzysowych.",
         "person_desc": (
-            "Osoby z tego klastra zwykle lubią być w kontakcie z innymi i szybko wyczuwają nastroje w zespole. "
-            "Często to do nich inni przychodzą, gdy trzeba coś wyjaśnić, dogadać lub po prostu pogadać."
+            "Osoby z tego klastra to ambitna 'młoda krew' zespołu (25-34 lata). "
+            "Wybór gór jako miejsca odpoczynku świadczy o charakterze, który lubi wyzwania i nie boi się wysiłku. "
+            "W połączeniu z miłością do psów, tworzy to profil osoby niezwykle lojalnej i pomocnej, "
+            "która wejdzie na każdy szczyt, o ile będzie mogła to zrobić w dobrym towarzystwie."
         )
     },
     3: {
-        "name": "Zadaniowi wykonawcy",
-        "strengths": "konsekwencja, domykanie tematów, trzymanie terminów.",
-        "good_tasks": "realizacja konkretnych zadań, pilnowanie harmonogramu, wdrażanie ustalonych planów.",
+        "name": "Niezależny Architekt Rozwiązań (The Autonomous Finisher)",
+        "strengths": "autonomia, głęboka koncentracja, precyzja, wysoka jakość dostarczanych rozwiązań.",
+        "good_tasks": "samodzielne projekty eksperckie, optymalizacja procesów, rozwiązywanie problemów, domykanie kluczowych etapów.",
         "person_desc": (
-            "Osoby z tego klastra lubią widzieć konkretne efekty swojej pracy i zazwyczaj dowożą to, co zaczęły. "
-            "Dobrze czują się w zadaniach z jasno określonym celem i terminem, gdzie wiadomo, co trzeba zrobić."
+            "Osoby z tego klastra to specjaliści ceniący niezależność (35-44 lata). "
+            "Wybór kotów i gór świadczy o naturze introwertycznego lidera własnej pracy, "
+            "który nie potrzebuje ciągłej uwagi, by dowozić perfekcyjne wyniki. "
+            "To typ 'wolnego strzelca' wewnątrz organizacji – niezwykle skuteczny, "
+            "gdy otrzyma jasny cel i przestrzeń do działania według własnych zasad."
         )
     },
     4: {
-        "name": "Strategiczni planujący",
-        "strengths": "patrzenie szerzej, planowanie kroków do przodu, łączenie różnych wątków.",
-        "good_tasks": "planowanie projek­tów, układanie harmonogramów, wyznaczanie kierunku działań.",
+        "name": "Pragmatyczny Analityk Systemowy (The Lean Strategist)",
+        "strengths": "bezstronność, chłodna ocena sytuacji, optymalizacja procesów, wysoka orientacja na cel.",
+        "good_tasks": "audyt procesów, tworzenie strategii, optymalizacja zasobów, planowanie ścieżek krytycznych.",
         "person_desc": (
-            "Osoby z tego klastra lubią rozumieć szerszy obraz sytuacji i myśleć o tym, co będzie dalej. "
-            "Dobrze czują się, gdy mogą łączyć kropki i układać całość w sensowny plan."
+            "Osoby z tego klastra to umysły nastawione na czystą logikę i strukturę (25-34 lata). "
+            "Brak preferencji zwierzęcych w połączeniu z pasją do gór sugeruje profil wybitnie racjonalny, "
+            "który odrzuca zbędne sentymenty na rzecz efektywności. To architekci porządku, "
+            "którzy potrafią spojrzeć na projekt z dystansu i zaplanować najbardziej optymalną drogę do sukcesu."
         )
     },
     5: {
-        "name": "Elastyczni eksperymentatorzy",
-        "strengths": "dostosowywanie się do zmian, szybkie reagowanie, gotowość do próbowania nowych rozwiązań.",
-        "good_tasks": "testowanie nowych pomysłów, praca w zmiennym środowisku, zadania wymagające improwizacji.",
+        "name": "Intuicyjny Nawigator (The Adaptive Mentor)",
+        "strengths": "rezyliencja, wysoka inteligencja emocjonalna, mądra elastyczność, zdolność adaptacji.",
+        "good_tasks": "zarządzanie zmianą, moderowanie kreatywne, wsparcie w sytuacjach kryzysowych, wdrażanie nowych standardów.",
         "person_desc": (
-            "Osoby z tego klastra zwykle dobrze znoszą zmiany i niepewność. "
-            "Lubią sprawdzać „co się stanie, gdy…” i uczą się głównie poprzez działanie."
+            "Osoby z tego klastra to doświadczone liderki zmian (45-54 lata). "
+            "Wybór wody i psów wskazuje na połączenie empatii z umiejętnością płynnego reagowania na wyzwania. "
+            "Ich 'eksperymentowanie' opiera się na fundamencie wiedzy i intuicji, co daje zespołowi "
+            "poczucie bezpieczeństwa nawet w zmiennym środowisku. To mistrzynie opanowania, "
+            "które wiedzą, jak przeprowadzić grupę przez nieznane wody."
         )
     },
     6: {
-        "name": "Stabilizatorzy zespołu",
-        "strengths": "dawanie poczucia bezpieczeństwa, trzymanie się ustalonych zasad, dbanie o stały rytm pracy.",
-        "good_tasks": "pilnowanie standardów, opieka nad stałymi procesami, dbanie o porządek organizacyjny.",
+        "name": "Strażnik Standardów i Etosu (The Custodian of Excellence)",
+        "strengths": "niezłomność merytoryczna, spokój, wysoka etyka pracy, dbałość o detale i jakość.",
+        "good_tasks": "kontrola jakości, audyt procesów, tworzenie standardów, opieka nad fundamentami projektów.",
         "person_desc": (
-            "Osoby z tego klastra często są „cichą podporą” zespołu. "
-            "Dobrze czują się tam, gdzie można robić swoje spokojnie i według ustalonych zasad."
+            "Osoby z tego klastra to autorytety merytoryczne (45-54 lata). "
+            "Wybór lasu i niespecyficznych zwierząt ('inne') sugeruje osobowość głęboką, "
+            "nieco introwertyczną, o bardzo sprecyzowanych wartościach. To oni pilnują, "
+            "by zespół nie szedł na skróty. Są fundamentem, który zapewnia trwałość "
+            "i wysoką jakość, działając bez pośpiechu, ale z niezwykłą precyzją."
         )
     },
     7: {
-        "name": "Szybcy reagujący",
-        "strengths": "szybkie podejmowanie decyzji, działanie pod presją, ogarnianie sytuacji kryzysowych.",
-        "good_tasks": "gaszenie pożarów, reagowanie na nagłe problemy, wsparcie tam, gdzie liczy się czas.",
+        "name": "Skuteczny Strateg Operacyjny (The Crisis Commander)",
+        "strengths": "błyskawiczna decyzyjność, wysoka odporność na stres, pragmatyzm, priorytetyzacja.",
+        "good_tasks": "zarządzanie kryzysowe, ratowanie opóźnionych projektów, negocjacje, szybkie wdrożenia.",
         "person_desc": (
-            "Osoby z tego klastra zwykle dobrze funkcjonują w sytuacjach, w których trzeba działać tu i teraz. "
-            "Często przejmują inicjatywę, gdy coś nagle się sypie i trzeba to szybko postawić na nogi."
+            "Osoby z tego klastra to specjaliści od zadań specjalnych (35-44 lata). "
+            "Połączenie braku preferencji zwierzęcych z miłością do wody sugeruje umysł "
+            "wyjątkowo sprawny, nastawiony na szybkie procesowanie informacji i działanie. "
+            "To oni przejmują stery, gdy sytuacja staje się trudna. Są mistrzymi 'gaszenia pożarów', "
+            "wprowadzając spokój i konkretną strukturę tam, gdzie liczy się każda sekunda."
         )
     }
 }
-
 os.environ["PYARROW_IGNORE_TIMEZONE"] = "1"
 os.environ["PANDAS_PYARROW_VERSION_CHECK"] = "0"
 warnings.filterwarnings("ignore", category=UserWarning, module="pandas.compat")
