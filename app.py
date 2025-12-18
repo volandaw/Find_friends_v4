@@ -218,10 +218,13 @@ if mode == "Mój klaster":
     }])
 
     model = get_model()
-    user_cluster = predict_model(model, data=user_df)["Cluster"].values[0]
+    # Wersja bezpieczna:
+    predictions = predict_model(model, data=user_df, verbose=False)
+    user_cluster = predictions["Cluster"].iloc[0]
 
     st.subheader(f"Najbliżej Ci do klastra: **{user_cluster}**")
 
+    
     # Opis roli w zespole
     role = get_cluster_role(user_cluster)
 
@@ -253,8 +256,8 @@ else:
     # 2. Model
     model = get_model()
 
-    # 3. Predykcja klastra dla każdego wpisu
-    clustered = predict_model(model, data=all_df)
+    # 3. Predykcja klastra – wersja bezpieczna (verbose=False)
+    clustered = predict_model(model, data=all_df, verbose=False)
 
     # 4. Liczebność klastrów
     cluster_counts = clustered['Cluster'].value_counts().sort_index()
