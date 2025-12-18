@@ -3,3 +3,4 @@ pandas
 pyarrow
 scikit-learn<1.3.0
 pycaret==3.0.0
+scipy<1.13.0
