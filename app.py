@@ -200,7 +200,6 @@ gender = st.sidebar.radio(
     ['Mężczyzna', 'Kobieta']
 )
 
-
 # ----------------------------------------------------
 # TRYB 1 — MÓJ KLASTER
 # ----------------------------------------------------
@@ -218,14 +217,19 @@ if mode == "Mój klaster":
     }])
 
     model = get_model()
-    # Wersja bezpieczna:
-    predictions = predict_model(model, data=user_df, verbose=False)
-    user_cluster = predictions["Cluster"].iloc[0]
+    
+    # 1. Przewidywanie klastra - wersja bezpieczna
+    try:
+        predictions = predict_model(model, data=user_df)
+        user_cluster = predictions["Cluster"].iloc[0]
+    except Exception:
+        # Plan awaryjny (bezpośrednie wywołanie modelu)
+        cluster_id = model.predict(user_df)[0]
+        user_cluster = f"Cluster {cluster_id}"
 
     st.subheader(f"Najbliżej Ci do klastra: **{user_cluster}**")
 
-    
-    # Opis roli w zespole
+    # 2. Opis roli w zespole
     role = get_cluster_role(user_cluster)
 
     st.markdown("### Jak możesz się sprawdzać w zespole?")
@@ -253,20 +257,19 @@ else:
     # 1. Dane wszystkich uczestników
     all_df = get_all_participants()
 
-    # 2. Pobranie modelu z pamięci
+    # 2. Model
     model = get_model()
 
     # 3. Przypisanie klastrów do wszystkich osób - wersja odporna na błędy
     try:
-        # Próba standardowa
         clustered = predict_model(model, data=all_df)
     except Exception:
-        # Próba awaryjna, jeśli powyższa zawiedzie
+        # Plan awaryjny dla całej tabeli
         preds = model.predict(all_df)
         clustered = all_df.copy()
-        clustered['Cluster'] = preds
+        clustered['Cluster'] = [f"Cluster {p}" for p in preds]
 
-    # 4. Podliczenie ile osób trafiło do każdego klastra
+    # 4. Liczebność klastrów
     cluster_counts = clustered['Cluster'].value_counts().sort_index()
 
     st.subheader("Liczba osób w każdym klastrze")
@@ -278,7 +281,7 @@ else:
 
     st.subheader("Profesjonalny raport wszystkich klastrów")
 
-    clustered_df = clustered  # DataFrame z kolumną 'Cluster'
+    clustered_df = clustered
     unique_clusters = sorted(clustered_df["Cluster"].unique())
 
     def profile_cluster(cid):
